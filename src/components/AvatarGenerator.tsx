@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function AvatarGenerator() {
     const [style, setStyle] = useState<AvatarStyle>("adventurer");
-    const [seed, setSeed] = useState("antigravity");
+    const [seed, setSeed] = useState("wassup");
     const [bgColor, setBgColor] = useState("");
     const [hasBackground, setHasBackground] = useState(true);
     const [copied, setCopied] = useState(false);
