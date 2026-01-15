@@ -42,7 +42,7 @@ export default function Footer() {
                         <ul className="text-sm text-muted-foreground font-medium flex gap-4">
                             <li>
                                 <a
-                                    href="https://buymecoffee.com/vikrant6"
+                                    href="https://buymeacoffee.com/vikrant6"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#FFDD00] text-black font-bold hover:scale-105 transition-transform w-fit"
