@@ -1,65 +1,146 @@
-import Image from "next/image";
+import AvatarGenerator from "@/components/AvatarGenerator";
+import { Zap, Shield, Link as LinkIcon, Download, Sparkles, Globe } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <main className="selection:bg-indigo-500/30">
+      <AvatarGenerator />
+
+      {/* Features Section */}
+      <section id="features" className="py-24 bg-[#0a0a0b]">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-500">
+              Why Choose AavatarBase?
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              AavatarBase is the ultimate tool for developers, designers, and creators looking for
+              high-quality placeholder avatars or unique profile pictures.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <FeatureCard
+              icon={<Zap className="text-indigo-500" />}
+              title="Instant Generation"
+              description="Create a random avatar in milliseconds. Perfect for generic avatars and placeholders."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <FeatureCard
+              icon={<Shield className="text-purple-500" />}
+              title="Open Source & Free"
+              description="Built with transparency. Our free online avatar creator follows market standards."
+            />
+            <FeatureCard
+              icon={<LinkIcon className="text-pink-500" />}
+              title="Permanent Links"
+              description="Get a persistent URL for your avatar. Ideal for Jira avatars and web apps."
+            />
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* API Documentation Section */}
+      <section id="api" className="py-24 border-t border-white/5 bg-black/20">
+        <div className="max-w-4xl mx-auto px-4 md:px-8">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="p-2 rounded-lg bg-indigo-500/10 text-indigo-400">
+              <Globe size={24} />
+            </div>
+            <h2 className="text-3xl font-bold">Developer API Guide</h2>
+          </div>
+
+          <div className="space-y-8">
+            <div className="p-6 rounded-3xl glass-card space-y-4">
+              <h3 className="text-xl font-semibold">Self-Hosted Endpoint</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Our engine provides a clean, self-hosted API for generating consistent avatars across your applications.
+                Unlike external services, these links are served directly from your domain.
+              </p>
+              <div className="bg-black/40 rounded-xl p-4 font-mono text-sm text-indigo-300 border border-white/5 break-all">
+                GET /api/avatar/[style]?seed=[value]&backgroundColor=[hex]
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="p-6 rounded-3xl glass-card space-y-3">
+                <h4 className="font-semibold text-indigo-300">Parameters</h4>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li><span className="text-foreground font-mono">style</span>: Choose from 30+ DiceBear styles.</li>
+                  <li><span className="text-foreground font-mono">seed</span>: Any string to generate unique features.</li>
+                  <li><span className="text-foreground font-mono">backgroundColor</span>: Optional hex color code.</li>
+                </ul>
+              </div>
+              <div className="p-6 rounded-3xl glass-card space-y-3">
+                <h4 className="font-semibold text-indigo-300">Example Usage</h4>
+                <pre className="text-xs bg-black/30 p-3 rounded-lg overflow-x-auto">
+                  <code className="text-muted-foreground leading-relaxed">
+                    {`<img \n  src="/api/avatar/adventurer?seed=felix" \n  alt="Avatar" \n/>`}
+                  </code>
+                </pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SEO Content Section / FAQ */}
+      <section className="py-24 bg-card/30">
+        <div className="max-w-4xl mx-auto px-4 md:px-8 space-y-12">
+          <div className="space-y-6">
+            <h2 className="text-2xl font-bold">The Best Free Avatar Generator Online</h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Looking for a <strong>random avatar generator</strong> for your next project?
+              AavatarBase provides a simple and crisp solution to <strong>create an avatar online for free</strong>.
+              Whether you need <strong>placeholders with URLs</strong> or a <strong>generic avatar</strong>
+              for your user profiles, our engine delivers high-performance SVGs instantly.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              Our <strong>avatar maker</strong> supports over 30 unique styles, making it the most
+              versatile <strong>avatar website</strong> available today. From <strong>web avatar generators</strong>
+              to <strong>coding avatars</strong>, we have it all.
+            </p>
+          </div>
+
+          <div id="faq" className="space-y-8">
+            <h2 className="text-2xl font-bold text-center">Frequently Asked Questions</h2>
+            <div className="grid grid-cols-1 gap-6">
+              <FAQItem
+                question="Is this avatar generator free?"
+                answer="Yes! AavatarBase is a 100% free online avatar generator. You can create as many avatars as you like without any cost."
+              />
+              <FAQItem
+                question="Can I use these avatars for my website?"
+                answer="Absolutely. Our avatars are perfect for web apps, Jira, and profile placeholders. The permanent link feature makes integration seamless."
+              />
+              <FAQItem
+                question="How does the random avatar generator work?"
+                answer="We use a powerful engine to generate randomized avatars based on the seed value you provide. Change the seed, change the face!"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+function FeatureCard({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) {
+  return (
+    <div className="p-8 rounded-3xl glass-card hover:bg-white/[0.05] transition-all duration-300 group">
+      <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+        {icon}
+      </div>
+      <h3 className="text-xl font-semibold mb-3">{title}</h3>
+      <p className="text-muted-foreground leading-relaxed">{description}</p>
+    </div>
+  );
+}
+
+function FAQItem({ question, answer }: { question: string, answer: string }) {
+  return (
+    <div className="p-6 rounded-2xl glass-card space-y-2">
+      <h4 className="font-semibold text-indigo-300">{question}</h4>
+      <p className="text-sm text-muted-foreground leading-relaxed">{answer}</p>
     </div>
   );
 }

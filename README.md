@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AavatarBase 🚀
 
-## Getting Started
+A premium, high-performance avatar generation engine built with **Next.js 16** and **DiceBear**. Generate unique, customizable avatars served directly from your own domain.
 
-First, run the development server:
+## 🛠️ How It Works
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Our engine is built to be simple, fast, and self-hosted. It works by exposing a dynamic API route that handles avatar generation on-the-fly.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1.  **Endpoint**: All avatars are served via `/api/avatar/[style]`.
+2.  **Generation**: When a request hits the endpoint, we use the `@dicebear/core` library combined with specific collections (like `avataaars` or `bottts`) to generate a unique SVG.
+3.  **Customization**: Query parameters like `seed` and `backgroundColor` are parsed to modify the avatar's appearance in real-time.
+4.  **Local Serving**: Unlike standard implementations that rely on external APIs, this engine serves images directly from your domain, giving you full control over link persistence.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+-   🎨 **30+ Styles**: Wide variety of avatar styles from abstract to character-based.
+-   🔗 **Permanent Links**: Generate absolute URLs that can be used anywhere.
+-   🌈 **Custom Backgrounds**: 20+ premium color presets or any hex value.
+-   ⚡ **Optimized**: Fast SVG rendering with built-in caching headers.
+-   📱 **Modern UI**: Dark-mode, glassmorphism design with responsive controls.
 
-## Learn More
+## 🚀 Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+1.  **Install Dependencies**:
+    ```bash
+    npm install
+    ```
+2.  **Run Development Server**:
+    ```bash
+    npm run dev
+    ```
+3.  **Production Build**:
+    ```bash
+    npm run build
+    npm run start
+    ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔋 Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+-   **Framework**: [Next.js 16](https://nextjs.org/)
+-   **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+-   **Logic**: TypeScript & React 19
+-   **AavatarBase Engine**: [DiceBear](https://www.dicebear.com/)
+-   **Icons & Animation**: Lucide-React & Framer Motion
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+Built with ❤️ for the open-source community.
