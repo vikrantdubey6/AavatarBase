@@ -4,7 +4,7 @@ export default function StructuredData() {
         "@type": "WebApplication",
         "name": "AavatarBase",
         "description": "Free online avatar generator and creator. Generate randomized avatars for profiles and placeholders with 30+ styles.",
-        "url": "https://aavatarbase.vercel.app", // Rebranded URL
+        "url": "https://aavatar-base.vercel.app", // Rebranded URL
         "applicationCategory": "DesignApplication",
         "operatingSystem": "Web",
         "offers": {
