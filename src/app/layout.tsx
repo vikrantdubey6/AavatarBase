@@ -32,6 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <meta name="google-site-verification" content="h5mlZCT9JFx6yog12ehKJ3Nk8IPT5cRjPIafta5g7Hc" />
       <body className={`${inter.className} antialiased selection:bg-indigo-500/30`}>
         <StructuredData />
         <Navbar />
